@@ -1,4 +1,4 @@
-# of-matter-and-mana
+# on-matter-and-information
 book experience of the story of Matter &amp; Mana 
 
 # Why 
