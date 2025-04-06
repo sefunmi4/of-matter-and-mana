@@ -1,0 +1,46 @@
+This is BibTeX, Version 0.99d (TeX Live 2024)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: ripples_in_spacetime.aux
+The style file: plainnat.bst
+Database file #1: references.bib
+You've used 15 entries,
+            2773 wiz_defined-function locations,
+            699 strings with 7016 characters,
+and the built_in function-call counts, 5821 in all, are:
+= -- 533
+> -- 205
+< -- 16
++ -- 76
+- -- 61
+* -- 388
+:= -- 913
+add.period$ -- 58
+call.type$ -- 15
+change.case$ -- 60
+chr.to.int$ -- 15
+cite$ -- 30
+duplicate$ -- 322
+empty$ -- 564
+format.name$ -- 78
+if$ -- 1233
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 22
+newline$ -- 94
+num.names$ -- 62
+pop$ -- 140
+preamble$ -- 1
+purify$ -- 50
+quote$ -- 0
+skip$ -- 210
+stack$ -- 0
+substring$ -- 223
+swap$ -- 28
+text.length$ -- 3
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 130
+warning$ -- 0
+while$ -- 64
+width$ -- 0
+write$ -- 225

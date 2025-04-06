@@ -1,0 +1,94 @@
+\begin{thebibliography}{15}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[DeWitt(1971)]{dewitt1971}
+Bryce~S. DeWitt.
+\newblock The many-universes interpretation of quantum mechanics.
+\newblock In A.~S. Wightman, editor, \emph{Fundamentals of Quantum Mechanics}, pages ??--?? Academic Press, 1971.
+
+\bibitem[Einstein(1905)]{einstein1905}
+A.~Einstein.
+\newblock Zur elektrodynamik bewegter k\"orper.
+\newblock \emph{Annalen der Physik}, 17\penalty0 (10):\penalty0 891--921, 1905.
+\newblock [Special Relativity, original German version].
+
+\bibitem[Everett(1957)]{everett1957}
+Hugh Everett.
+\newblock “relative state” formulation of quantum mechanics.
+\newblock \emph{Reviews of Modern Physics}, 29\penalty0 (3):\penalty0 454--462, 1957.
+
+\bibitem[Feynman et~al.(1965)Feynman, Leighton, and Sands]{feynmanlectures}
+R.~P. Feynman, R.~B. Leighton, and M.~Sands.
+\newblock \emph{The Feynman Lectures on Physics, Vol.~3}.
+\newblock Addison-Wesley, 1965.
+\newblock [Quantum mechanics volume of Feynman Lectures].
+
+\bibitem[Glauber(1963)]{glauber1963}
+R.~J. Glauber.
+\newblock Quantum theory of optical coherence. i. fundamental equations and properties of the field correlation functions.
+\newblock \emph{Phys. Rev.}, 131\penalty0 (6):\penalty0 2766--2788, 1963.
+\newblock [Phase Encoding in Quantum Mechanics].
+
+\bibitem[Griffiths(2005)]{griffiths2005introduction}
+D.~J. Griffiths.
+\newblock \emph{Introduction to Quantum Mechanics}.
+\newblock Pearson Prentice Hall, 2nd edition, 2005.
+\newblock [Standard quantum mechanics textbook].
+
+\bibitem[Husimi(1940)]{husimi1940some}
+K{\^o}di Husimi.
+\newblock Some formal properties of the density matrix.
+\newblock \emph{Proceedings of the Physico-Mathematical Society of Japan. 3rd Series}, 22:\penalty0 264--314, 1940.
+
+\bibitem[Minkowski(1908)]{minkowski1908space}
+H.~Minkowski.
+\newblock Raum und zeit.
+\newblock \emph{Jahresberichte der Deutschen Mathematiker-Vereinigung}, 18:\penalty0 75--88, 1908.
+\newblock [Foundational work on Minkowski spacetime].
+
+\bibitem[Nielsen and Chuang(2000)]{nielsenchuang2000}
+Michael~A. Nielsen and Isaac~L. Chuang.
+\newblock \emph{Quantum Computation and Quantum Information}.
+\newblock Cambridge University Press, Cambridge, 2000.
+\newblock ISBN 978-0521635035.
+
+\bibitem[Rindler(1977)]{rindler1977essential}
+W.~Rindler.
+\newblock \emph{Essential Relativity: Special, General, and Cosmological}.
+\newblock Springer, 2nd edition, 1977.
+\newblock [Relativity textbook].
+
+\bibitem[Schleich(2001)]{schleich2001quantum}
+Wolfgang~P. Schleich.
+\newblock \emph{Quantum Optics in Phase Space}.
+\newblock Wiley-VCH, Berlin, 2001.
+\newblock ISBN 978-3527294351.
+
+\bibitem[Susskind(2009)]{susskind2009}
+L.~Susskind.
+\newblock The quantum mechanics of black holes.
+\newblock In \emph{Advances in Theoretical Physics}, volume~11, pages 1--29. World Scientific, 2009.
+\newblock [Advanced Quantum Visualization Techniques].
+
+\bibitem[von Neumann(1932)]{vonNeumann1932}
+J.~von Neumann.
+\newblock \emph{Mathematical Foundations of Quantum Mechanics}.
+\newblock Princeton University Press, 1932.
+\newblock [Density Matrices].
+
+\bibitem[Wigner(1932)]{wigner1932}
+E.~P. Wigner.
+\newblock On the quantum correction for thermodynamic equilibrium.
+\newblock \emph{Phys. Rev.}, 40\penalty0 (1):\penalty0 749--759, 1932.
+
+\bibitem[Zachos et~al.(2005)Zachos, Fairlie, and Curtright]{zachos2005quantum}
+Cosmas~K. Zachos, David~B. Fairlie, and Thomas~L. Curtright.
+\newblock \emph{Quantum Mechanics in Phase Space: An Overview with Selected Papers}.
+\newblock World Scientific, Singapore, 2005.
+\newblock ISBN 978-9812383846.
+
+\end{thebibliography}
