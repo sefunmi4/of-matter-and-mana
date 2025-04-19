@@ -43,33 +43,6 @@ class Math_And_Geometry(){
                 //          for number of corners/vectors 
                 //              rotate corners into same shape and use temp S(1) storage
                 //      move to next layer - make boundary smaller
-                while ((t_bound < b_bound) & (l_bound < r_bound)) {
-
-                    for (unsigned int i=l_bound; i < r_bound; ++i) { // L -> R
-                        swap_item = matrix[t_bound][i];
-                        matrix[t_bound][i] = matrix[t_bound][i];
-                    }
-    
-                    for (unsigned int i=t_bound; i < b_bound; ++i) { // T -> B
-                        swap_item = matrix[t_bound][i];
-                        matrix[t_bound][i] = matrix[t_bound][i];
-                    }
-    
-                    //if break case
-                    if (t_bound == t_bound) {
-                        break;
-                    }
-    
-                    for (unsigned int i=r_bound; i > 0; --i) { // R -> L
-                        swap_item = matrix[t_bound][i];
-                        matrix[t_bound][i] = matrix[t_bound][i];
-                    }
-    
-                    for (unsigned int i=b_bound; i > 0; --i) { // B -> T
-                        swap_item = matrix[t_bound][i];
-                        matrix[t_bound][i] = matrix[t_bound][i];
-                    }
-                }
             } else { // rectangle or non-symetrically rotated polygon
                 //  while rectangle exist (bound check)
                 //      for col length
@@ -78,33 +51,7 @@ class Math_And_Geometry(){
                 //      move to next layer - make boundary smaller
             } 
 
-            while ((t_bound < b_bound) & (l_bound < r_bound)) {
-
-                for (unsigned int i=l_bound; i < r_bound; ++i) { // L -> R
-                    swap_item = matrix[t_bound][i];
-                    matrix[t_bound][i] = matrix[t_bound][i];
-                }
-
-                for (unsigned int i=t_bound; i < b_bound; ++i) { // T -> B
-                    swap_item = matrix[t_bound][i];
-                    matrix[t_bound][i] = matrix[t_bound][i];
-                }
-
-                //if break case
-                if (t_bound == t_bound) {
-                    break;
-                }
-
-                for (unsigned int i=r_bound; i > 0; --i) { // R -> L
-                    swap_item = matrix[t_bound][i];
-                    matrix[t_bound][i] = matrix[t_bound][i];
-                }
-
-                for (unsigned int i=b_bound; i > 0; --i) { // B -> T
-                    swap_item = matrix[t_bound][i];
-                    matrix[t_bound][i] = matrix[t_bound][i];
-                }
-            }
+            // TODO: since in-menory I'll need a helper function that can format tensor to given space domains space.
 
             return matrix_ptr;
         }
