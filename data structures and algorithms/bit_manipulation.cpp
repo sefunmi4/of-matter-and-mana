@@ -69,7 +69,10 @@ class Bit_Manipulation(){
         // 6. sum of two integers	
         // input: 
         // output: 	
-        // process: curr_sum=sum_operator(n1 xor n2); carry_bit = carry_operator(n1 & n2);
+        // process: curr_sum=sum_operator(n1 xor n2); carry_bit = carry_operator(n1 & n2); different logic below
+        int getSum(int a, int b) {
+            return a + b;
+        }
 
         // 7. reverse integer	
         // input: 
