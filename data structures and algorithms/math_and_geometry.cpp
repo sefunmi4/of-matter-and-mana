@@ -88,8 +88,28 @@ class Math_And_Geometry(){
         // input: 2D Matrix
         // output: 2D Matrix
         // process: track data in visted cells. from L->R and T->B: matrix[r][0]&[0][c] = matrix[r][c] if m==0
-        &std::vector< std::vector <int> > set_matrix_zeros(&std::vector< std::vector <int> > matrix){
-            
+        void setZeroes(vector<vector<int>>& matrix) {
+            int ROWS = matrix.size(), COLS = matrix[0].size();
+            vector<vector<int>> mark = matrix;
+    
+            for (int r = 0; r < ROWS; r++) {
+                for (int c = 0; c < COLS; c++) {
+                    if (matrix[r][c] == 0) {
+                        for (int col = 0; col < COLS; col++) {
+                            mark[r][col] = 0;
+                        }
+                        for (int row = 0; row < ROWS; row++) {
+                            mark[row][c] = 0;
+                        }
+                    }
+                }
+            }
+    
+            for (int r = 0; r < ROWS; r++) {
+                for (int c = 0; c < COLS; c++) {
+                    matrix[r][c] = mark[r][c];
+                }
+            }
         }
 
         // 4. happy number
