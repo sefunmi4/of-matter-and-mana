@@ -132,8 +132,18 @@ class Math_And_Geometry(){
         // input: bool
         // output: unsigned int
         // process: base(x=0:return 0; n=0:return 1) recurr(p= dfs(x*x) return x*p if n=odd else p )
-        &bool pow(&unsigned int num){
-            
+        double myPow(double x, int n) {
+            if (x == 0) {
+                return 0;
+            }
+            if (n == 0) {
+                return 1;
+            }
+            double res = 1;
+            for (const auto& i = 0; i < abs(n); i++) {
+                res *= x;
+            }
+            return n >= 0 ? res : 1 / res;
         }
 
         // 7. multiply Strings
