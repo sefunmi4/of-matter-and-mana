@@ -65,6 +65,16 @@ class Bit_Manipulation(){
         // input: 
         // output: 	
         // process: approach1:(complete_n[...] xor n[...])  approach2:(sum(complete_n[...] )-sum(n[...]))
+        int missing_number(vector<int>& nums) {
+            int n = nums.size();
+            sort(nums.begin(), nums.end());
+            for (int i = 0; i < n; i++) {
+                if (nums[i] != i) {
+                    return i;
+                }
+            }
+            return n;
+        }
 
         // 6. sum of two integers	
         // input: 
