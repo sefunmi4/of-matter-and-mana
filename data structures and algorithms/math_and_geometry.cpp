@@ -96,8 +96,28 @@ class Math_And_Geometry(){
         // input: unsigned_int
         // output: bool
         // process: base(f_ptr = 1: return true; f_ptr = s_ptr: return false) recur(f_ptr-next-next, s_ptr-next)
-        &bool happy_number(&unsigned int num){
-            
+        bool is_happy(int n) {
+            unordered_set<int> visit;
+    
+            while (visit.find(n) == visit.end()) {
+                visit.insert(n);
+                n = sum_of_squares(n);
+                if (n == 1) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        int sum_of_squares(int n) {
+            int output = 0;
+    
+            while (n > 0) {
+                int digit = n % 10;
+                digit = digit * digit;
+                output += digit;
+                n /= 10;
+            }
+            return output;
         }
 
         // 5. plus one - recurive
@@ -133,34 +153,34 @@ class Math_And_Geometry(){
             vector<vector<int>> pts;
 
             for (const auto& point : points) {
-                add_detect_squares_add(point, pts, ptsCount);
+                add_square(point, pts, ptsCount);
             }
 
             for (const auto& point : points) {
-                squares_per_point = detect_squares_count(point, pts, ptsCount);
+                squares_per_point = count_squares(point, pts, ptsCount);
             }
 
             return ptsCount;
         }
 
-        long get_detect_squares_key(const int& x, const int& y) {
+        long get_squares_key(const int& x, const int& y) {
             return (static_cast<long>(x) << 32) | static_cast<long>(y);
         }
 
-        void add_detect_squares_add(const vector<int>& point, vector<vector<int>>& pts, unordered_map<long, int>& ptsCount) {
-            long key = get_detect_squares_key(point[0], point[1]);
+        void add_square(const vector<int>& point, vector<vector<int>>& pts, unordered_map<long, int>& ptsCount) {
+            long key = get_squares_key(point[0], point[1]);
             ptsCount[key]++; 
             pts.push_back(point); 
         }
                 
-        int detect_squares_count(const vector<int>& point,const vector<vector<int>>& pts, unordered_map<long, int>& ptsCount) {
+        int count_squares(const vector<int>& point,const vector<vector<int>>& pts, unordered_map<long, int>& ptsCount) {
             int res = 0;
             int px = point[0], py = point[1];
     
             for (const auto& pt : pts) {
                 int x = pt[0], y = pt[1];
                 if (abs(py - y) != abs(px - x) || x == px || y == py) continue;
-                res += ptsCount[get_detect_squares_key(x, py)] * ptsCount[get_detect_squares_key(px, y)];
+                res += ptsCount[get_squares_key(x, py)] * ptsCount[get_squares_key(px, y)];
             }
             return res;
         }
