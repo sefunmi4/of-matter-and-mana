@@ -55,10 +55,35 @@ class Math_And_Geometry(){
         // input: 2D Matrix
         // output: 2D Matrix
         // process: while L>=R & T>=B: L->R; T->B; shift T; if T<B or R<L:complete; R->L; shift R; B->T
-        &std::vector< std::vector <int> > spiral_matrix(&std::vector< std::vector <int> > matrix){
+        vector<int> spiral_order(vector<vector<int>>& matrix) {
+            int m = matrix.size(), n = matrix[0].size();
+            vector<int> res;
+    
+            // append all the elements in the given direction
+            spiral_order_depth_fist_search(m, n, 0, -1, 0, 1, matrix, res);
+            return res;
+        }
+    
+        void spiral_order_dfs(
+            int row, int col, 
+            int r, int c, 
+            int dr, int dc, 
+            vector<vector<int>>& matrix, vector<int>& res
+        ) {
+            if (row == 0 || col == 0) return; //basecase
             
+            // recurrent case
+            for (int i = 0; i < col; i++) { 
+                r += dr;
+                c += dc;
+                res.push_back(matrix[r][c]);
+            }
+    
+            // sub-problem
+            dfs(col, row - 1, r, c, dc, -dr, matrix, res);
         }
 
+        
         // 3. set matrix zeros
         // input: 2D Matrix
         // output: 2D Matrix
