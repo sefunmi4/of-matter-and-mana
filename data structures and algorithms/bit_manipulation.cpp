@@ -45,11 +45,19 @@ class Bit_Manipulation(){
             return *seen.begin();
         }
 
-
         // 2. number of 1 bits	
         // input:
         // output:
-        // process: while n > 0: n = (n-1) & n; count++;
+        // process: while n > 0: n = (n-1) & n; count++; diffrent logic below
+        int  number_of_one_bits(uint32_t n) {
+            int res = 0;
+            for (int i = 0; i < 32; i++) {
+                if ((1 << i) & n) {
+                    res++;
+                }
+            }
+            return res;
+        }
 
         // 3. counting bits
         // input: 
