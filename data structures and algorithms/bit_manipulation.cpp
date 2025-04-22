@@ -55,6 +55,17 @@ class Bit_Manipulation(){
         // input: 
         // output: 
         // process: dp[i] = 1 + dp[i - offset] if offset * 2 = i: offset = i
+        vector<int> count_bits(int n) {
+            vector<int> res(n + 1);
+            for (int num = 1; num <= n; num++) {
+                for (int i = 0; i < 32; i++) { // could do (n -1) & n too or dp
+                    if (num & (1 << i)) {
+                        res[num]++;
+                    }
+                }x
+            }
+            return res;
+        }
 
         // 4. reverse bits
         // input: 
