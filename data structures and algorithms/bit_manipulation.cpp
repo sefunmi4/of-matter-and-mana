@@ -78,7 +78,18 @@ class Bit_Manipulation(){
         // input: 
         // output: 	
         // process: swap left and right bit with force ON or OFF mask shifting the index till 1/2 bits length
-         
+        void reverse_integer(vector<vector<int>>& matrix) {
+            int n = matrix.size();
+            vector<vector<int>> rotated(n, vector<int>(n));
+      
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < n; j++) {
+                    rotated[j][n - 1 - i] = matrix[i][j];
+                }
+            }
+      
+            matrix = rotated;
+        }
         
     private:
 
