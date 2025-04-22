@@ -26,6 +26,25 @@ class Bit_Manipulation(){
         // input: 
         // output:
         // process: use XOR gate as a filter and all the duplicates will cancel
+        int singleNumber(vector<int>& nums) {
+            //unordered hashset of visited
+            unordered_set<int> seen;
+
+            // for all num in nums
+            for (int num : nums) {
+                // check if in visited 
+                // on even visits the number is removed 
+                // on odd visits the number is added
+                if (seen.count(num)) {
+                    seen.erase(num);
+                } else {
+                    seen.insert(num);
+                }
+            }
+            //only number left is odd and showed up 1, or 3, ... 2n-1 time in the list 
+            return *seen.begin();
+        }
+
 
         // 2. number of 1 bits	
         // input:
