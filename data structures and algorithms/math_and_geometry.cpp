@@ -103,9 +103,44 @@ class Math_And_Geometry(){
         // input:
         // output:
         // process: for point p : for nodes as diag d: count += num_points[(p.x,d.y)]*num_points[(d.x,p.y)]
-        detect_squares(){
-            
+        unordered_map<long, int> detect_squares(vector<vector<int>>& points){
+            unordered_map<long, int> ptsCount;
+            vector<vector<int>> pts;
+
+            for (const auto& point : points) {
+                add_detect_squares_add(point, pts, ptsCount);
+            }
+
+            for (const auto& point : points) {
+                squares_per_point = detect_squares_count(point, pts, ptsCount);
+            }
+
+            return ptsCount;
         }
+
+        long get_detect_squares_key(const int& x, const int& y) {
+            return (static_cast<long>(x) << 32) | static_cast<long>(y);
+        }
+
+        void add_detect_squares_add(const vector<int>& point, vector<vector<int>>& pts, unordered_map<long, int>& ptsCount) {
+            long key = get_detect_squares_key(point[0], point[1]);
+            ptsCount[key]++; 
+            pts.push_back(point); 
+        }
+                
+        int detect_squares_count(const vector<int>& point,const vector<vector<int>>& pts, unordered_map<long, int>& ptsCount) {
+            int res = 0;
+            int px = point[0], py = point[1];
+    
+            for (const auto& pt : pts) {
+                int x = pt[0], y = pt[1];
+                if (abs(py - y) != abs(px - x) || x == px || y == py) continue;
+                res += ptsCount[get_detect_squares_key(x, py)] * ptsCount[get_detect_squares_key(px, y)];
+            }
+            return res;
+        }
+
+
     private:
 
 
