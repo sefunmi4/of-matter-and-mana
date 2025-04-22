@@ -124,8 +124,19 @@ class Math_And_Geometry(){
         // input: int sum , int carry
         // output: int result
         // process: sum ,carry= 1 + n[0];  while carry: carry= 1 if n[i]=9 else 0; sum,carry = sum+carry 
-        &unsigned int plus_one(&unsigned int sum , &unsigned int carry){
-            
+        vector<int> plusOne(vector<int>& digits) {
+            if (digits.empty())
+                return {1};
+    
+            if (digits.back() < 9) {
+                digits.back() += 1;
+                return digits;
+            } else {
+                digits.pop_back();
+                vector<int> result = plusOne(digits);
+                result.push_back(0);
+                return result;
+            }
         }
 
         // 6. pow(x,n)
