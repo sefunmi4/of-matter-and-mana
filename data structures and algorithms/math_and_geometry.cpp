@@ -30,30 +30,25 @@ class Math_And_Geometry(){
         // output: 2D Matrix
         // process: Matrix Mul or rotate from corners & shift idx once level complete shift T-B,L-R bound
         // notes: if its a rectangle will need to copy shape to account for length and width will assume is square
-        &std::vector< std::vector <unsigned int> > rotate_image(&std::vector< std::vector <unsigned int> > matrix = std::null_ptr){
-            unsigned int swap_item = 0;
-            unsigned int l_bound = 0;
-            unsigned int r_bound = matrix[0][0]->size()-1;
-            unsigned int t_bound = 0;
-            unsigned int b_bound = matrix[0]->size()-1;
-
-            if (b_bound == r_bound) { // square or symetrically rotated poygon 
-                //  while square exist (bound check)
-                //      for col/corners 
-                //          for number of corners/vectors 
-                //              rotate corners into same shape and use temp S(1) storage
-                //      move to next layer - make boundary smaller
-            } else { // rectangle or non-symetrically rotated polygon
-                //  while rectangle exist (bound check)
-                //      for col length
-                //          for number of corners/vectors 
-                //              rotate corners into rotated copied shape (S(n*m) storage)
-                //      move to next layer - make boundary smaller
-            } 
-
-            // TODO: since in-menory I'll need a helper function that can format tensor to given space domains space.
-
-            return matrix_ptr;
+        void rotate(vector<vector<int>>& matrix) {
+            // let n = size of matrix row
+            int n = matrix.size();
+            // make result vector to copy to
+            vector<vector<int>> rotated(n, vector<int>(n));
+    
+            // for row in rows: for col in cols
+            for (int row = 0; row < n; row++) {
+                for (int col = 0; col < n; col++) {
+                    // linear algebra translation - kernel index
+                    // [ 0  1 ]
+                    // [-1  0 ]
+                    // [x'] = 0*x + 1*y =  y
+                    // [y'] =  (n-1)+ -1*x + 0*y = (n-1)-x
+                    rotated[col][n - 1 - row] = matrix[row][col];
+                }
+            }
+    
+            matrix = rotated;
         }
 
         // 2. spiral matrix
