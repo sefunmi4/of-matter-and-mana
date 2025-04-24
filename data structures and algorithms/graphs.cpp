@@ -423,6 +423,219 @@ public:
         }
     };
 
+    // 10. graph valid tree:
+    // Given n nodes labeled from 0 to n - 1 and a list of undirected edges (each edge is a pair of nodes), write a function to check whether these edges make up a valid tree.
+    class DSU {
+        vector<int> Parent, Size;
+        int comps;
+    public:
+        DSU(int n) {
+            comps = n;
+            Parent.resize(n + 1);
+            Size.resize(n + 1);
+            for (int i = 0; i <= n; i++) {
+                Parent[i] = i;
+                Size[i] = 1;
+            }
+        }
+
+        int find(int node) {
+            if (Parent[node] != node) {
+                Parent[node] = find(Parent[node]);
+            }
+            return Parent[node];
+        }
+
+        bool unionNodes(int u, int v) {
+            int pu = find(u), pv = find(v);
+            if (pu == pv) return false;
+            if (Size[pu] < Size[pv]) {
+                swap(pu, pv);
+            }
+            comps--;
+            Size[pu] += Size[pv];
+            Parent[pv] = pu;
+            return true;
+        }
+
+        int components() {
+            return comps;
+        }
+    };
+
+    bool validTree(int n, vector<vector<int>>& edges) {
+        if (edges.size() > n - 1) {
+            return false;
+        }
+
+        DSU dsu(n);
+        for (auto& edge : edges) {
+            if (!dsu.unionNodes(edge[0], edge[1])) {
+                return false;
+            }
+        }
+        return dsu.components() == 1;
+    }
+
+    // 11. number of connected components - undir graph:
+    // There is an undirected graph with n nodes. There is also an edges array, where edges[i] = [a, b] means that there is an edge between node a and node b in the graph.
+
+    // The nodes are numbered from 0 to n - 1.
+
+    // Return the total number of connected components in that graph.
+
+    class DSU {
+    public:
+        vector<int> parent;
+        vector<int> rank;
+
+        DSU(int n) {
+            parent.resize(n);
+            rank.resize(n, 1);
+            for (int i = 0; i < n; i++) {
+                parent[i] = i;
+            }
+        }
+
+        int find(int node) {
+            int cur = node;
+            while (cur != parent[cur]) {
+                parent[cur] = parent[parent[cur]];
+                cur = parent[cur];
+            }
+            return cur;
+        }
+
+        bool unionSets(int u, int v) {
+            int pu = find(u);
+            int pv = find(v);
+            if (pu == pv) {
+                return false;
+            }
+            if (rank[pv] > rank[pu]) {
+                swap(pu, pv);
+            }
+            parent[pv] = pu;
+            rank[pu] += rank[pv];
+            return true;
+        }
+    };
+
+    class Solution {
+    public:
+        int countComponents(int n, vector<vector<int>>& edges) {
+            DSU dsu(n);
+            int res = n;
+            for (auto& edge : edges) {
+                if (dsu.unionSets(edge[0], edge[1])) {
+                    res--;
+                }
+            }
+            return res;
+        }
+    };
+
+
+    // 12. redundant connection:
+    // You are given a connected undirected graph with n nodes labeled from 1 to n. Initially, it contained no cycles and consisted of n-1 edges.
+
+    // We have now added one additional edge to the graph. The edge has two different vertices chosen from 1 to n, and was not an edge that previously existed in the graph.
+
+    // The graph is represented as an array edges of length n where edges[i] = [ai, bi] represents an edge between nodes ai and bi in the graph.
+
+    // Return an edge that can be removed so that the graph is still a connected non-cyclical graph. If there are multiple answers, return the edge that appears last in the input edges.
+
+    class Solution {
+    public:
+        vector<int> findRedundantConnection(vector<vector<int>>& edges) {
+            int n = edges.size();
+            vector<int> par(n + 1), rank(n + 1, 1);
+            for (int i = 0; i <= n; ++i)
+                par[i] = i;
+
+            for (const auto& edge : edges) {
+                if (!Union(par, rank, edge[0], edge[1]))
+                    return vector<int>{ edge[0], edge[1] };
+            }
+            return {};
+        }
+
+    private:
+        int Find(vector<int>& par, int n) {
+            int p = par[n];
+            while (p != par[p]) {
+                par[p] = par[par[p]];
+                p = par[p];
+            }
+            return p;
+        }
+
+        bool Union(vector<int>& par, vector<int>& rank, int n1, int n2) {
+            int p1 = Find(par, n1);
+            int p2 = Find(par, n2);
+
+            if (p1 == p2)
+                return false;
+            if (rank[p1] > rank[p2]) {
+                par[p2] = p1;
+                rank[p1] += rank[p2];
+            } else {
+                par[p1] = p2;
+                rank[p2] += rank[p1];
+            }
+            return true;
+        }
+    };
+
+    // 13. word ladder:
+    // You are given two words, beginWord and endWord, and also a list of words wordList. All of the given words are of the same length, consisting of lowercase English letters, and are all distinct.
+
+    // Your goal is to transform beginWord into endWord by following the rules:
+
+    // You may transform beginWord to any word within wordList, provided that at exactly one position the words have a different character, and the rest of the positions have the same characters.
+    // You may repeat the previous step with the new word that you obtain, and you may do this as many times as needed.
+    // Return the minimum number of words within the transformation sequence needed to obtain the endWord, or 0 if no such sequence exists.
+
+    int ladderLength(string beginWord, string endWord, vector<string>& wordList) {
+        if (endWord.empty() || find(wordList.begin(), wordList.end(), endWord) == wordList.end()) {
+            return 0;
+        }
+
+        unordered_map<string, vector<string>> nei;
+        wordList.push_back(beginWord);
+        for (const string& word : wordList) {
+            for (int j = 0; j < word.size(); ++j) {
+                string pattern = word.substr(0, j) + "*" + word.substr(j + 1);
+                nei[pattern].push_back(word);
+            }
+        }
+
+        unordered_set<string> visit{beginWord};
+        queue<string> q;
+        q.push(beginWord);
+        int res = 1;
+        while (!q.empty()) {
+            int size = q.size();
+            for (int i = 0; i < size; ++i) {
+                string word = q.front();
+                q.pop();
+                if (word == endWord) {
+                    return res;
+                }
+                for (int j = 0; j < word.size(); ++j) {
+                    string pattern = word.substr(0, j) + "*" + word.substr(j + 1);
+                    for (const string& neiWord : nei[pattern]) {
+                        if (visit.find(neiWord) == visit.end()) {
+                            visit.insert(neiWord);
+                            q.push(neiWord);
+                        }
+                    }
+                }
+            }
+            ++res;
+        }
+        return 0;
+    }
 private:
     // No internal members yet
 };
