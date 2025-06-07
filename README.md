@@ -22,6 +22,39 @@ npm run dev
 npm run client
 ```
 
+The client is built with Vite and React. During development the command above launches it in hot-reload mode.
+
+### Environment variables
+
+Copy `.env.example` to `.env` and adjust values as needed:
+
+```bash
+cp .env.example .env
+```
+
+`SPEED_OF_LIGHT` and `RIPPLE_FREQUENCY` control the simulation speed and wave frequency. `SESSION_TTL` sets how long a session stays active in milliseconds.
+
+### Building for production
+
+Compile the TypeScript server and build the React client:
+
+```bash
+npm run build
+```
+Start the compiled server:
+
+```bash
+npm start
+```
+
+To preview the client production build, run:
+
+```bash
+npm run preview
+```
+
+After logging in at `/login`, navigate to `/spells` to view experimental 3D visualizations of algorithms.
+
 ## Repository Layout
 - **client/** – React components for the spellbook UI and ripple visualizer.
 - **server/** – API endpoints and a simple ripple engine for simulations.
