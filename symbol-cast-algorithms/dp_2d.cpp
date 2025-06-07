@@ -7,6 +7,11 @@
 #include <algorithm>
 #include <cmath>
 
+// Symbol Cast Algorithm Suite for EtherOS
+// Inputs are 3D objects with ordering numbers and category colors.
+// Complexity: O(n) = S(n) + cT(n) treating time as a spatial dimension.
+// Referencing an object updates its position; copying leaves it in place.
+
 using namespace std;
 
 class DP_2D {

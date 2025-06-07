@@ -61,6 +61,10 @@ After logging in at `/login`, navigate to `/spells` to view experimental 3D visu
 - **game-engine/** – Core physics and time navigation utilities.
 - **spellbooks/** – Chapters of spells and narrative content.
 - **docs/** – Research notes and glossary entries.
+- **symbol-cast-algorithms/** – Generalized data structures and algorithms for
+  the Symbol Cast runtime in EtherOS. Inputs are visualized as 3D objects and
+  complexity is expressed as `O(n) = S(n) + cT(n)` where time is treated as a
+  spatial dimension.
 
 The `quantum mechanics` folder contains the ongoing paper *Ripples in Spacetime and Quantum Branches*, which explores a polar coordinate approach to quantum wavefunctions. Source files are under `quantum mechanics/paper`.
 

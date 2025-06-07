@@ -6,6 +6,11 @@
 #include <numeric>  // for accumulate
 #include <cstdint>
 
+// Symbol Cast Algorithm Suite for EtherOS
+// Inputs are 3D objects with ordering numbers and category colors.
+// Complexity: O(n) = S(n) + cT(n) treating time as a spatial dimension.
+// Referencing an object updates its position; copying leaves it in place.
+
 using namespace std;
 
 class DP_1D {
@@ -18,8 +23,9 @@ public:
     DP_1D& operator=(DP_1D&& other) noexcept = default;
 
     // 1. climbing stairs / num_ways_fibinacci_1D:
-    // You are given an integer n representing the number of steps to reach the top of a staircase. You can climb with either 1 or 2 steps at a time.
-    // Return the number of distinct ways to climb to the top of the staircase.
+    // Given a linear sequence of n discrete positions, you may advance 1 or 2
+    // units at a time. Count the unique sequences of moves required to reach
+    // position n. This models movement through time as a 1D space.
     int climbStairs(int n) {
         int one = 1, two = 1;
         
@@ -33,9 +39,9 @@ public:
     }
 
     // 2. min cost climbing stairs:
-    // You are given an array of integers cost where cost[i] is the cost of taking a step from the ith floor of a staircase. After paying the cost, you can step to either the (i + 1)th floor or the (i + 2)th floor.
-    // You may choose to start at the index 0 or the index 1 floor.
-    // Return the minimum cost to reach the top of the staircase, i.e. just past the last index in cost.
+    // Given an array cost where cost[i] is the energy to move from position i,
+    // you may advance 1 or 2 positions after paying that energy. Determine the
+    // minimal total cost to go beyond the last index.
     int minCostClimbingStairs(vector<int>& cost) {
         for (int i = cost.size() - 3; i >= 0; i--) {
             cost[i] += min(cost[i + 1], cost[i + 2]);
@@ -44,9 +50,9 @@ public:
     }
 
     // 3. house robber:
-    // You are given an integer array nums where nums[i] represents the amount of money the ith house has. The houses are arranged in a straight line, i.e. the ith house is the neighbor of the (i-1)th and (i+1)th house.
-    // You are planning to rob money from the houses, but you cannot rob two adjacent houses because the security system will automatically alert the police if two adjacent houses were both broken into.
-    // Return the maximum amount of money you can rob without alerting the police.
+    // Given a line of locations each holding a value, pick locations to
+    // maximize the total without selecting two that are adjacent along the
+    // line. This models optimal resource collection along a 1D path.
     int rob(vector<int>& nums) {
         int rob1 = 0, rob2 = 0;
 
@@ -59,11 +65,8 @@ public:
     }
 
     // 4. house robber 2:
-    // You are given an integer array nums where nums[i] represents the amount of money the ith house has. The houses are arranged in a circle, i.e. the first house and the last house are neighbors.
-
-    // You are planning to rob money from the houses, but you cannot rob two adjacent houses because the security system will automatically alert the police if two adjacent houses were both broken into.
-
-    // Return the maximum amount of money you can rob without alerting the police.
+    // Similar to the linear case, but the locations form a closed loop. Choose
+    // values to maximize the sum without taking two neighboring locations.
 
     class Solution {
     public:
@@ -87,11 +90,8 @@ public:
     };
 
     // 5. longest palandromic substring:
-    // Given a string s, return the longest substring of s that is a palindrome.
-
-    // A palindrome is a string that reads the same forward and backward.
-
-    // If there are multiple palindromic substrings that have the same length, return any one of them.
+    // For a sequence of symbols, find the longest contiguous region that reads
+    // identically forward and backward. Return any maximum-length region.
 
     class Solution {
     public:
@@ -128,20 +128,10 @@ public:
         }
     };
 
-    // 6.decode ways:
-    // A string consisting of uppercase english characters can be encoded to a number using the following mapping:
-
-    // 'A' -> "1"
-    // 'B' -> "2"
-    // ...
-    // 'Z' -> "26"
-    // To decode a message, digits must be grouped and then mapped back into letters using the reverse of the mapping above. There may be multiple ways to decode a message. For example, "1012" can be mapped into:
-
-    // "JAB" with the grouping (10 1 2)
-    // "JL" with the grouping (10 12)
-    // The grouping (1 01 2) is invalid because 01 cannot be mapped into a letter since it contains a leading zero.
-
-    // Given a string s containing only digits, return the number of ways to decode it. You can assume that the answer fits in a 32-bit integer.
+    // 6. decode ways:
+    // Digits map to letters using 1→A, 2→B, … 26→Z. Given a numeric string,
+    // count how many valid letter sequences it can represent when grouping the
+    // digits. Leading zeroes are not allowed in any group.
     int numDecodings(string s) {
         int dp = 0, dp2 = 0;
         int dp1 = 1;
@@ -163,11 +153,9 @@ public:
     }
 
     // 7. coin change:
-    // You are given an integer array coins representing coins of different denominations (e.g. 1 dollar, 5 dollars, etc) and an integer amount representing a target amount of money.
-
-    // Return the fewest number of coins that you need to make up the exact target amount. If it is impossible to make up the amount, return -1.
-
-    // You may assume that you have an unlimited number of each coin.
+    // Given coin denominations and a target value, compute the minimal number
+    // of coins required to exactly reach that value. Return -1 if it cannot be
+    // reached using the available denominations.
     int coinChange(vector<int>& coins, int amount) {
         vector<int> dp(amount + 1, amount + 1);
         dp[0] = 0;
@@ -182,11 +170,8 @@ public:
     } 
 
     // 8. maximum product subarray:
-    // Given an integer array nums, find a subarray that has the largest product within the array and return it.
-
-    // A subarray is a contiguous non-empty sequence of elements within an array.
-
-    // You can assume the output will fit into a 32-bit integer.
+    // Find the contiguous segment of numbers whose product is maximized.
+    // Assumes the result fits in a standard 32-bit integer type.
 
     int maxProduct(vector<int>& nums) {
         int n = nums.size(), res = nums[0];
@@ -201,9 +186,8 @@ public:
     }
 
     // 9. word break:
-    // Given a string s and a dictionary of strings wordDict, return true if s can be segmented into a space-separated sequence of dictionary words.
-
-    // You are allowed to reuse words in the dictionary an unlimited number of times. You may assume all dictionary words are unique.
+    // Determine if a string can be segmented into a sequence of allowed words.
+    // Words may be reused any number of times.
 
     class TrieNode {
     public:
@@ -270,11 +254,8 @@ public:
     }
 
     // 10. longest increasing subsequence:
-    // Given an integer array nums, return the length of the longest strictly increasing subsequence.
-
-    // A subsequence is a sequence that can be derived from the given sequence by deleting some or no elements without changing the relative order of the remaining characters.
-
-    // For example, "cat" is a subsequence of "crabt".
+    // Compute the length of the longest sequence that strictly increases as you
+    // move forward through the values, skipping elements as needed.
     int lengthOfLIS(vector<int>& nums) {
         vector<int> dp;
         dp.push_back(nums[0]);
@@ -296,8 +277,7 @@ public:
     }
 
     // 11. partition equal subset sum:
-    // You are given an array of positive integers nums.
-    // Return true if you can partition the array into two subsets, subset1 and subset2 where sum(subset1) == sum(subset2). Otherwise, return false.
+    // Determine if the values can be split into two groups with equal totals.
     class Solution {
     public:
         bool canPartition(vector<int>& nums) {
