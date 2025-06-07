@@ -25,7 +25,6 @@ setInterval(() => {
     }
   }
 }, 60_000);
-
 router.get('/state', (req: Request, res: Response) => {
   const session = req.header('X-Session-Id') || 'default';
   const rippleState = getState(session);
