@@ -54,7 +54,9 @@ npm run preview
 ```
 
 After logging in at `/login`, navigate to `/spells` to view experimental 3D visualizations of algorithms.
+
 You can also browse the story chapters at `/chapters`.
+
 
 ## Repository Layout
 - **client/** – React components for the spellbook UI and ripple visualizer.

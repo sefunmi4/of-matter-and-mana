@@ -5,6 +5,7 @@ import Spells from './pages/Spells';
 import ChapterList from './pages/ChapterList';
 import Chapter from './pages/Chapter';
 
+
 export default function App() {
   return (
     <Router>
