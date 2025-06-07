@@ -32,5 +32,12 @@ export default function Spells() {
     };
   }, []);
 
-  return <div ref={mount} style={{ width: '100%', height: '80vh' }} />;
+  return (
+    <div>
+      <div ref={mount} style={{ width: '100%', height: '80vh' }} />
+      <p style={{ textAlign: 'center' }}>
+        <a href="/chapters">Read the chapters</a>
+      </p>
+    </div>
+  );
 }

@@ -25,6 +25,9 @@ export default function Login() {
         />
         <button type="submit">Enter</button>
       </form>
+      <p>
+        Or explore the <a href="/chapters">chapters</a>.
+      </p>
     </div>
   );
 }
