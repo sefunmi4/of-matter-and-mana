@@ -12,12 +12,48 @@ Describing hardware (matter) and software (mana) in the language of magic helps 
 4. Ideas are like mana, matter is the medium, and physics is the mechanism.
 
 ## Getting Started
-Install dependencies and start the development server:
+Install dependencies and start the development servers:
 
 ```bash
 npm install
+# start the API server (TypeScript via ts-node)
 npm run dev
+# in a second terminal, start the React client
+npm run client
 ```
+
+The client is built with Vite and React. During development the command above launches it in hot-reload mode.
+
+### Environment variables
+
+Copy `.env.example` to `.env` and adjust values as needed:
+
+```bash
+cp .env.example .env
+```
+
+`SPEED_OF_LIGHT` and `RIPPLE_FREQUENCY` control the simulation speed and wave frequency. `SESSION_TTL` sets how long a session stays active in milliseconds.
+
+### Building for production
+
+Compile the TypeScript server and build the React client:
+
+```bash
+npm run build
+```
+Start the compiled server:
+
+```bash
+npm start
+```
+
+To preview the client production build, run:
+
+```bash
+npm run preview
+```
+
+After logging in at `/login`, navigate to `/spells` to view experimental 3D visualizations of algorithms.
 
 ## Repository Layout
 - **client/** – React components for the spellbook UI and ripple visualizer.
@@ -25,6 +61,10 @@ npm run dev
 - **game-engine/** – Core physics and time navigation utilities.
 - **spellbooks/** – Chapters of spells and narrative content.
 - **docs/** – Research notes and glossary entries.
+- **symbol-cast-algorithms/** – Generalized data structures and algorithms for
+  the Symbol Cast runtime in EtherOS. Inputs are visualized as 3D objects and
+  complexity is expressed as `O(n) = S(n) + cT(n)` where time is treated as a
+  spatial dimension.
 
 The `quantum mechanics` folder contains the ongoing paper *Ripples in Spacetime and Quantum Branches*, which explores a polar coordinate approach to quantum wavefunctions. Source files are under `quantum mechanics/paper`.
 
