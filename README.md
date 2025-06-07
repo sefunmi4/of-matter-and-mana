@@ -12,11 +12,14 @@ Describing hardware (matter) and software (mana) in the language of magic helps 
 4. Ideas are like mana, matter is the medium, and physics is the mechanism.
 
 ## Getting Started
-Install dependencies and start the development server:
+Install dependencies and start the development servers:
 
 ```bash
 npm install
+# start the API server (TypeScript via ts-node)
 npm run dev
+# in a second terminal, start the React client
+npm run client
 ```
 
 ## Repository Layout
