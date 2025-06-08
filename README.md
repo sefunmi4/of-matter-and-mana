@@ -57,6 +57,16 @@ After logging in at `/login`, navigate to `/spells` to view experimental 3D visu
 
 You can also browse the story chapters at `/chapters`.
 
+## Running Tests
+Install dev dependencies and run the test suite:
+
+```bash
+npm install
+npm test
+```
+
+The tests cover the ripple engine and chapter routes.
+
 
 ## Repository Layout
 - **client/** – React components for the spellbook UI and ripple visualizer.
