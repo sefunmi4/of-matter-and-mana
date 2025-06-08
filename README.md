@@ -32,7 +32,7 @@ Copy `.env.example` to `.env` and adjust values as needed:
 cp .env.example .env
 ```
 
-`SPEED_OF_LIGHT` and `RIPPLE_FREQUENCY` control the simulation speed and wave frequency. `SESSION_TTL` sets how long a session stays active in milliseconds.
+`RIPPLE_FREQUENCY` controls the wave frequency. `SESSION_TTL` sets how long a session stays active in milliseconds.
 
 ### Building for production
 
