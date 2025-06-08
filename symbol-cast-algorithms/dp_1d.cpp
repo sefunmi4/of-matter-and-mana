@@ -68,7 +68,7 @@ public:
     // Similar to the linear case, but the locations form a closed loop. Choose
     // values to maximize the sum without taking two neighboring locations.
 
-    class Solution {
+    class HouseRobber2Solution {
     public:
         int rob(vector<int>& nums) {
             vector<int> nums1(nums.begin() + 1, nums.end());
@@ -93,7 +93,7 @@ public:
     // For a sequence of symbols, find the longest contiguous region that reads
     // identically forward and backward. Return any maximum-length region.
 
-    class Solution {
+    class PalindromeSolution {
     public:
         vector<int> manacher(string& s) {
             string t = "#" + string(1, s[0]);
@@ -278,7 +278,7 @@ public:
 
     // 11. partition equal subset sum:
     // Determine if the values can be split into two groups with equal totals.
-    class Solution {
+    class PartitionSolution {
     public:
         bool canPartition(vector<int>& nums) {
             if (sum(nums) % 2 != 0) {
@@ -307,6 +307,5 @@ public:
             return total;
         }
     };
-private:
 
 };
