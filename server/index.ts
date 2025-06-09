@@ -3,6 +3,7 @@ import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import rippleEngine from './rippleEngine';
 import chapters from './chapters';
+import { log } from './logger';
 
 dotenv.config();
 
@@ -15,7 +16,7 @@ app.use('/chapters', chapters);
 if (require.main === module) {
   const PORT = process.env.PORT || 3000;
   app.listen(Number(PORT), () => {
-    console.log(`Server running on port ${PORT}`);
+    log(`Server running on port ${PORT}`);
   });
 }
 
