@@ -8,9 +8,9 @@ describe('Chapters API', () => {
     expect(Array.isArray(res.body)).toBe(true);
   });
 
-  test('GET /chapters/foundations returns markdown', async () => {
-    const res = await request(app).get('/chapters/foundations');
+  test('GET /chapters/open-source-development-for-wizards returns markdown', async () => {
+    const res = await request(app).get('/chapters/open-source-development-for-wizards');
     expect(res.statusCode).toBe(200);
-    expect(res.text).toContain('Book I');
+    expect(res.text).toContain('Open Source Development for Wizards');
   });
 });

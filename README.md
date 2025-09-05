@@ -72,7 +72,7 @@ The tests cover the ripple engine and chapter routes.
 - **client/** – React components for the spellbook UI and ripple visualizer.
 - **server/** – API endpoints and a simple ripple engine for simulations.
 - **game-engine/** – Core physics and time navigation utilities.
-- **spellbooks/** – Chapters of spells and narrative content.
+- **spellbooks/** – Narrative chapters aligned with the [curriculum](docs/curriculum/README.md).
 - **docs/** – Research notes and glossary entries.
 - **symbol-cast-algorithms/** – Generalized data structures and algorithms for
   the Symbol Cast runtime in EtherOS. Inputs are visualized as 3D objects and
