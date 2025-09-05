@@ -72,7 +72,7 @@ The tests cover the ripple engine and chapter routes.
 - **client/** – React components for the spellbook UI and ripple visualizer.
 - **server/** – API endpoints and a simple ripple engine for simulations.
 - **game-engine/** – Core physics and time navigation utilities.
-- **spellbooks/** – Chapters of spells and narrative content.
+- **spellbooks/** – Narrative chapters aligned with the [curriculum](docs/curriculum/README.md).
 - **docs/** – Research notes and glossary entries.
 - **symbol-cast-algorithms/** – Generalized data structures and algorithms for
   the Symbol Cast runtime in EtherOS. Inputs are visualized as 3D objects and
@@ -80,6 +80,9 @@ The tests cover the ripple engine and chapter routes.
   spatial dimension.
 
 The `quantum mechanics` folder contains the ongoing paper *Ripples in Spacetime and Quantum Branches*, which explores a polar coordinate approach to quantum wavefunctions. Source files are under `quantum mechanics/paper`.
+
+## Curriculum
+See [docs/curriculum](docs/curriculum/README.md) for a chapter-based roadmap.
 
 ## Contributing
 This project is experimental. Contributions that expand the spellbooks, improve the ripple engine, or elaborate on the research are welcome.
