@@ -81,5 +81,8 @@ The tests cover the ripple engine and chapter routes.
 
 The `quantum mechanics` folder contains the ongoing paper *Ripples in Spacetime and Quantum Branches*, which explores a polar coordinate approach to quantum wavefunctions. Source files are under `quantum mechanics/paper`.
 
+## Curriculum
+See [docs/curriculum](docs/curriculum/README.md) for a chapter-based roadmap.
+
 ## Contributing
 This project is experimental. Contributions that expand the spellbooks, improve the ripple engine, or elaborate on the research are welcome.
