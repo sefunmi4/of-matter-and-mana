@@ -37,21 +37,9 @@ class Math_And_Geometry(){
             unsigned int t_bound = 0;
             unsigned int b_bound = matrix[0]->size()-1;
 
-            if (b_bound == r_bound) { // square or symetrically rotated poygon 
-                //  while square exist (bound check)
-                //      for col/corners 
-                //          for number of corners/vectors 
-                //              rotate corners into same shape and use temp S(1) storage
-                //      move to next layer - make boundary smaller
-            } else { // rectangle or non-symetrically rotated polygon
-                //  while rectangle exist (bound check)
-                //      for col length
-                //          for number of corners/vectors 
-                //              rotate corners into rotated copied shape (S(n*m) storage)
-                //      move to next layer - make boundary smaller
-            } 
-
             // TODO: since in-menory I'll need a helper function that can format tensor to given space domains space.
+
+            
 
             return matrix_ptr;
         }
